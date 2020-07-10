@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; params [ ["_shop","",[""]], ["_isHideout",false,[false]], ["_isGangDealer",false,[false]], ["_exit",false] ]; if (_isHideout) then { _exit = call zero_fnc_checkHideout; }; if(isNil {_shop} || _exit) exitWith {}; zero_var_shop_type = _shop;
+if((_shop == "cop") && (playerSide != west)) exitWith {(localize "STR_NOTF_NotACop") call zero_fnc_msg;}; if(!isNull (objectParent player)) exitWith {(localize "STR_NOTF_Sell_Virt_Vehicle") call zero_fnc_msg;}; createDialog "zero_var_shops_menu"; _isGangDealer call zero_fnc_virt_update;

@@ -1,0 +1,2 @@
+params[ ["_object", "", [""]], ["_position", [],[[]]] ]; if (_object isEqualTo "" || _position isEqualTo []) exitWith {}; if (toLower (_object) find "bomb" != -1 || toLower (_object) find "helicopterexplo" != -1 || toLower (_object) find "fuelexplosion" != -1) exitWith { [[1,[player getVariable["zero_var_realname", name player], getPlayerUID player, _object, _position]], "zero_fnc_logRpt", zero_var_HC1_owner] call zero_fnc_sendPacket;
+}; zero_var_encryptCreateVehicleLocal = nil; private _result = _object createVehicleLocal _position; _result;

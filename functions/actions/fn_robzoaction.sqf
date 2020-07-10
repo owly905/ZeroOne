@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_target","_exit"]; _target = cursorObject; if(isNull _target || !isPlayer _target) exitWith {}; _exit = false; if(playerSide != west) then { if(_target getVariable["zero_var_robbed",false]) exitWith {_exit = true;
+}; }; if(_exit) exitWith {}; [[player],"zero_fnc_robZOPerson",_target] call zero_fnc_sendPacket; if(playerSide != west) then { _target setVariable["zero_var_robbed",true,true]; };

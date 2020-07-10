@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private ["_caller","_callerName","_mode"]; _caller = param[0,objNull,[objNull]]; _callerName = param[1,"Unknown Player",[""]]; _mode = param[2,0,[0]]; if(isNull _caller) exitWith {}; if(_mode isEqualTo 0) then { [format[localize "STR_Medic_Request",_callerName],3,"Neuer Notruf",true] call zero_fnc_msg;
+}else{ [format[localize "STR_Medic_Request_Respawn",_callerName],2,"Notruf zurückgezogen",true,3] call zero_fnc_msg; };

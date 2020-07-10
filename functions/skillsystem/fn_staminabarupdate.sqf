@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; if(zero_var_Camrunning) exitWith {}; private["_ui","_walkDis","_maxWalk","_staminaBar"]; disableSerialization; _ui = uiNamespace getVariable ["zero_var_playerHUD",displayNull]; if(isNull _ui) exitWith {2 cutRsc ["zero_var_playerHUD","PLAIN"];
+}; _walkDis = param [0,0,[0]]; _maxWalk = param [1,0,[0]]; _staminaBar = _ui displayCtrl 23503; _staminaBar progressSetPosition ((100-( ( _walkDis / _maxWalk ) *100))/100); (_ui displayCtrl 23508) ctrlSetText str(floor(((100-( ( _walkDis / _maxWalk ) *100)))));

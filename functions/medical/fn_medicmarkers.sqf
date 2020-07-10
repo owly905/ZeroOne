@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_markers","_marker"]; _markers = []; uiSleep 1; if(visibleMap) then { { if(_x getVariable ["zero_var_requested", false]) then { _marker = createMarkerLocal [format["%1_dead_marker",_x],visiblePosition _x]; _marker setMarkerColorLocal "ColorBlack";
+_marker setMarkerTypeLocal "loc_Hospital"; _marker setMarkerTextLocal format["Verwundeter: %1",(_x getVariable["zero_var_name","Unknown Player"])]; _markers pushBack _marker; }; } forEach allDeadMen; waitUntil {!visibleMap}; {deleteMarkerLocal _x;} forEach _markers; };

@@ -1,0 +1,2 @@
+private _exit = false; private _hideout = (nearestObjects[getPosATL player,["Land_u_Barracks_V2_F","Land_i_Barracks_V2_F","Land_Barracks_01_camo_F"],25]) select 0; if(isNull _hideout || {isNil {_hideout getVariable "zero_var_gangOwner"}} || {(_hideout getVariable "zero_var_gangOwner") != (group player)}) then { "Das Hideout gehört einer anderen Gruppierung" call zero_fnc_msg;
+_exit = true; }; _exit

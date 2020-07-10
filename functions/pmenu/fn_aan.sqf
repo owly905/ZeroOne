@@ -1,0 +1,2 @@
+if (isServer) exitWith {}; private["_display","_message","_name"]; disableSerialization; _message = param[0,"",[""]]; _name = param[1,"",[""]]; if(_message isEqualTo "" || _name isEqualTo "") exitWith {}; [parseText format["<t size='2'>Zero-One News - Neuigkeiten</t>"],parseText format["<t size='1.2'>%1 - %1 - %1</t>",_message]] spawn BIS_fnc_AAN;
+uiSleep 9; playMusic ""; uiSleep 51; _display = uiNamespace getVariable "BIS_AAN"; _display closeDisplay 0;

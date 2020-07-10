@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; if(isNull (objectParent player)) exitWith {}; if(player getVariable ["zero_var_restrained",false]) then { detach player; player setVariable["zero_var_escorting",false,true]; player setVariable["zero_var_transporting",false,true];
+}; zero_var_remoteAction = true; player action ["Eject", vehicle player]; titleText[localize "STR_NOTF_PulledOut","PLAIN"]; titleFadeOut 4; zero_var_remoteAction = nil;

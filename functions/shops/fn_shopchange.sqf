@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; disableSerialization; private["_control","_selection","_data","_select"]; _control = (findDisplay 3100) displayCtrl 3102; _selection = lbCurSel _control; if(_selection isEqualTo -1) exitWith {}; if(isNull _control) exitWith {(localize "STR_Shop_NoDisplay") call zero_fnc_msg;
+}; _data = _control lbData _selection; _select = [_data] call zero_fnc_fetchCfgDetails; if(_select isEqualTo []) exitWith {}; _select call zero_fnc_switchmodel; [] call zero_fnc_shoppreis;

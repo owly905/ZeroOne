@@ -1,0 +1,5 @@
+if(isNil "zero_var_loadouts")exitWith{hint "Bitte warte einen Moment...";}; if (_this isEqualType 0) then { zero_var_loadouts_selectedLoadoutSlot = _this; zero_var_loadouts_selectedLoadout = zero_var_loadouts select (zero_var_loadouts_selectedLoadoutSlot - 1); if(zero_var_loadouts_selectedLoadout isEqualTo [])then{ ((findDisplay 9900) displayCtrl 1100) ctrlSetStructuredText (parseText "Dieser Loadoutslot ist nicht belegt.<br/>
+		<br/>
+		Drücke 'LOADOUT SPEICHERN', um deine aktuelle Ausrüstung in diesem Slot zu speichern.<br/>
+		So kannst du dich später einfach wieder ausrüsten, ohne jedes Item einzeln zu kaufen." );
+} else { call zero_fnc_printLoadoutDetails; }; } else { if(isNil "zero_var_loadouts_selectedLoadout" || isNil "zero_var_loadouts_selectedLoadoutSlot")exitWith{"Du musst erst ein Loadout auswählen." call zero_fnc_msg;}; if(!isNil 'zero_var_allowedToRefresh' && {serverTime - zero_var_allowedToRefresh < 2}) exitWith {hint 'Nicht so schnell!'};zero_var_allowedToRefresh = serverTime; switch (_this) do { case "BUY": { 0 spawn zero_fnc_buyLoadout; }; case "DELETE": { call zero_fnc_deleteLoadout; }; case "SAVE": { 0 spawn zero_fnc_saveLoadout; }; }; };

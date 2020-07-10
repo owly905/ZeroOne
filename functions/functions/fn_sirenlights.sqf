@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_vehicle"]; _vehicle = vehicle player; if(_vehicle getVariable["zero_var_lights",false]) then { titleText [localize "STR_NOTF_SirenLights_off","PLAIN"]; _vehicle setVariable["zero_var_lights",false,true];
+} else { titleText [localize "STR_NOTF_SirenLights_on","PLAIN"]; _vehicle setVariable["zero_var_lights",true,true]; [[_vehicle,0.22,[0, 0, 230]],"zero_fnc_sirenLightsEx",(allPlayers - entities "HeadlessClient_F"),false] call zero_fnc_sendPacket; };

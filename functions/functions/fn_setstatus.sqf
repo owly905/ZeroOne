@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_progress","_progressText"]; disableSerialization; _progress = (findDisplay 35020) displayCtrl 35021; _progressText = (findDisplay 35020) displayCtrl 35022; _progressText ctrlSetStructuredText (parseText format["<t font='PuristaBold' align='center'>%1</t>",(_this select 0)]);
+_progress ctrlSetTextColor [0.863,0.078,0.188,1]; _progress progressSetPosition (_this select 1);

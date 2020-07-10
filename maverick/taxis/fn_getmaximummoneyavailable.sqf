@@ -1,0 +1,2 @@
+private _paymentSource = getText (missionConfigFile >> "maverick_taxis_cfg" >> "pricing" >> "paymentSource"); private _return = 0; private _both = (_paymentSource == "both"); if (_paymentSource == "wallet" || {_both}) then { private _walletMoney = [4,0] call zero_fnc_Z0Check;
+if (_walletMoney > _return) then { _return = _walletMoney; }; }; if (_paymentSource == "bank" || {_both}) then { private _bankMoney = [5,0] call zero_fnc_Z0Check; if (_bankMoney > _return) then { _return = _bankMoney; }; }; _return

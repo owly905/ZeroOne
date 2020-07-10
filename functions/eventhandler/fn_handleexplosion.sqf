@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; if((call(zero_var_adminLevel) > 0)) then { diag_log format["zero_fnc_handleExplosion %1", _this]; }; params[ ["_vehicle",objNull,[objNull]], ["_damage",0,[0]] ]; zero_var_explosionCounter = zero_var_explosionCounter + 1;
+if (zero_var_explosionCounter > 5) then { [[3,[player getVariable["zero_var_realname", profileName], getPlayerUID player]], "zero_fnc_logRpt", zero_var_HC1_owner] call zero_fnc_sendPacket; player setVariable["zero_var_kick", false, true]; };

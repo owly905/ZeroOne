@@ -1,0 +1,2 @@
+if !(hasInterface) exitWith {}; disableSerialization; if !(params [["_ctrl", controlNull, [controlNull]], ["_index", -1, [0]]]) exitWith {}; (Zero_var_spawnMenuArray select _index) params ["", "_position", "", "_display"];
+Zero_var_spawn_point = _index; [((findDisplay 38500) displayCtrl 38502), 1, 0.1, _position] call zero_fnc_setMapPosition; ctrlSetText[38501,format["%2: %1", _display, localize "STR_Spawn_CSP"]];

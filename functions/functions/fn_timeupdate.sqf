@@ -1,0 +1,2 @@
+for "_i" from 0 to 1 step 0 do { if (!zero_var_Camrunning || !zero_var_killed) then { disableSerialization; private _ui = uiNamespace getVariable ["zero_var_playerHUD",displayNull]; (_ui displayCtrl 23504) ctrlSetText ([zero_var_reallifetime + serverTime, "HH:MM"] call BIS_fnc_secondsToString) + " | UID: " + str(zero_var_uid) + " | " + (player getVariable ["zero_var_realname", name player]);
+}; uiSleep 1; };

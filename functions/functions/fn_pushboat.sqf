@@ -1,0 +1,2 @@
+params [["_player", objNull, [objNull]],["_curTarget", objNull, [objNull]]]; if (isNull _player || isNull _curTarget) exitWith{}; private _check = _player call zero_fnc_checkShore; if (_check) then { [[_player, "zero_var_fnc_setPos", [_curTarget, [(((getPosATL _player) select 0) + (8 * (sin (getDir _player)))),(((getPosATL _player) select 1) + (8 * (cos (getDir _player))))]]], "zero_fnc_remoteExecuteCommand", zero_var_HC1_owner] call zero_fnc_sendPacket;
+} else { "Du musst näher an der Küste sein, um diese Funktion nutzen zu können" call zero_fnc_msg; };

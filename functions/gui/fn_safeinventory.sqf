@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_safe","_tInv","_safeInfo"]; _safe = param[0,objNull,[objNull]]; if(isNull _safe) exitWith {closeDialog 0;}; disableSerialization; _tInv = (findDisplay 3500) displayCtrl 3502; lbClear _tInv; _safeInfo = _safe getVariable["zero_var_safe",-1];
+if(_safeInfo < 1) exitWith {closeDialog 0; (localize "STR_Civ_VaultEmpty") call zero_fnc_msg;}; _tInv lbAdd format["[%1] - %2",_safeInfo,"Goldbarren"]; _tInv lbSetData [(lbSize _tInv)-1,"goldbar"];

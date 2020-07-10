@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_time"]; if(playerSide != west) exitWith {}; if(isNil "zero_var_pInact_curTarget") exitWith {"Niemand ausgewählt." call zero_fnc_msg;}; _time = ctrlText 1400; if(! ([_time] call zero_fnc_isNumber)) exitWith{(localize "STR_GNOTF_IncorrectChar") call zero_fnc_msg;
+}; _time = parseNumber _time; _time = round _time; if(_time < 5 || _time > 60) exitWith {(localize "STR_Jail_InvalidTime") call zero_fnc_msg;}; closeDialog 0; [zero_var_pInact_curTarget, _time] call zero_fnc_arrestAction;

@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_vehicle","_unit","_giver","_name"]; _vehicle = param[0,objNull,[objNull]]; _unit = param[1,objNull,[objNull]]; _giver = param[2,"",[""]]; if(isNull _vehicle || isNull _unit) exitWith {}; if(player == _unit && !(_vehicle in zero_var_vehicles)) then { _name = getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName");
+[format[localize "STR_Function_Get_Key",_giver,_name],1] call zero_fnc_msg; zero_var_vehicles pushBack _vehicle; };

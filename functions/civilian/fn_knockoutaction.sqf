@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_target"]; _target = param[0,objNull,[objNull]]; if(isNull _target || !isPlayer _target || player distance _target > 4 || zero_var_is_arrested || !(isNull (objectParent player))) exitWith {}; if(lifeState player == "UNCONSCIOUS" || zero_var_knocked_out) exitWith {};
+zero_var_knockout = true; player playMoveNow "AwopPercMstpSgthWrflDnon_End2"; uiSleep 0.08; [[_target,profileName],"zero_fnc_knockedOut",_target,false] call zero_fnc_sendPacket; uiSleep 3; zero_var_knockout = false;

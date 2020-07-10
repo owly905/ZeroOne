@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; private["_display","_text"]; disableSerialization; _display = findDisplay 2700; if(isNull _display) exitWith {}; _text = _display displayCtrl 2701; _text ctrlSetStructuredText parseText format["<t size='1.8px'>Konto:</t> <t size='1.8px'>€%1</t><br/> <t size='1.8px'>Bar:</t>  <t size='1.8'>€%2</t>", [([2, 0] call zero_fnc_Z0Check)] call zero_fnc_numberText,[([3, 0] call zero_fnc_Z0Check)] call zero_fnc_numberText];
+

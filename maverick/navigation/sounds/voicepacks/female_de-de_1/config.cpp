@@ -1,0 +1,2 @@
+class female_dede_1 { displayName = "weiblich"; sound100mLeft = "gpsvoice_female1_sound100mLeft"; soundNowLeft = "gpsvoice_female1_soundNowLeft"; sound100mRight = "gpsvoice_female1_sound100mRight"; soundNowRight = "gpsvoice_female1_soundNowRight";
+soundOnDestinationRoad = "gpsvoice_female1_soundOnDestinationRoad"; soundDestinationReached = "gpsvoice_female1_soundDestinationReached"; soundFollowRoad = "gpsvoice_female1_soundFollowRoad"; };

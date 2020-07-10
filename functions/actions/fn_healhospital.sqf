@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; if(([3, 0] call zero_fnc_Z0Check) < 100) exitWith {(format[localize "STR_NOTF_HS_NoCash",100]) call zero_fnc_msg;}; titleText[localize "STR_NOTF_HS_Healing","PLAIN"]; uiSleep 8; if(player distance (_this select 0) > 5) exitWith {titleText[localize "STR_NOTF_HS_ToFar","PLAIN"]};
+titleText[localize "STR_NOTF_HS_Healed","PLAIN"]; [[player, "zero_var_fnc_setDamage", [player, 0]], "zero_fnc_remoteExecuteCommand", zero_var_HC1_owner] call zero_fnc_sendPacket; [1, ([3, 0] call zero_fnc_Z0Check) - 100] call zero_fnc_Z0Check;

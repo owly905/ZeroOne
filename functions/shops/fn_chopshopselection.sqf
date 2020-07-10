@@ -1,0 +1,2 @@
+if (!hasInterface) exitWith {}; disableSerialization; private["_control","_selection","_price","_priceTag"]; _control = param[0,controlNull,[controlNull]]; _selection = param[1,-1,[0]]; if(isNull _control || _selection isEqualTo -1 || playerSide isEqualTo west) exitWith {};
+_price = _control lbValue _selection; _priceTag = ((findDisplay 39400) displayCtrl 39401); _priceTag ctrlSetStructuredText parseText format ["<t size='0.8'>" +(localize "STR_GNOTF_Price")+ " <t color='#8cff9b'>%1€</t></t>",[_price] call zero_fnc_numberText];

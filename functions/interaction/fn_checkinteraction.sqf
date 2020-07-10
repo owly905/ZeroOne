@@ -1,0 +1,2 @@
+if(!params[["_interaction","",[""]]]) exitWith {}; if (!isClass (missionConfigFile >> "zero_CfgInteractions" >> "Actions" >> _interaction)) exitWith {}; private _cfg = (missionConfigFile >> "zero_CfgInteractions" >> "Actions" >> _interaction); private _condition = getText(_cfg >> "condition");
+if(_condition != "" && {!(call compile(_condition))}) exitWith {}; private _function = getText(_cfg >> "function"); private _text = getText(_cfg >> "text"); if (_text find "zero_fnc_" != -1) then { _text = call compile (getText(_cfg >> "text")); }; [_function, format["%1",_text]];

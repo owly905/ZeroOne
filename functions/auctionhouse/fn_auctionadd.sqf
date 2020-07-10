@@ -1,0 +1,37 @@
+if(!zero_var_allowedToSell) exitWith {"Du kannst ein Fahrzeug nur alle 20 Sekunden verkaufen" call zero_fnc_msg;
+};
+ zero_var_allowedToSell = false;
+ 0 spawn { uiSleep 20;
+ zero_var_allowedToSell = true;
+ };
+ _index = lbCurSel 80215;
+ _cur = lbData [80215,_index];
+ if(_cur isEqualTO "") exitWIth {"Du hast keinen Eintrag ausgewählt" call zero_fnc_msg};
+ _cur = call compile _cur;
+ if((_cur select 8) in getArray(missionConfigFile >> "zero_CustomSkins" >> "allskins")) exitWith {"Das Fahrzeug hat eine Clanlackierung und muss erst umlackiert werden." call zero_fnc_msg};
+ _price = parseNumber(ctrlText 80216);
+ if((_price isEqualTo 0) OR {_price > 250000000}) exitWith {"Du hast keinen validen Preis angegeben" call zero_fnc_msg};
+ if(!(cbChecked ((findDisplay 80200) displayCtrl 80217))) exitWith {"Du hast das Angebot nicht bestätigt!" call zero_fnc_msg};
+ _count = 0;
+ _uid = getplayeruid player;
+ { if((_x select 3) isEqualTo _uid) then {_count = _count + 1};
+ } forEach zero_var_auctions;
+ if(_count > 4) exitWith {"Du hast bereits 5 Angebote im Auktionshaus!" call zero_fnc_msg};
+
+lbDelete [80215,_index];
+ deleteVehicle zero_var_auctionveh;
+ ctrlShow[80211,false];
+ ctrlShow[80223,false];
+ if((lbSize 80215) isEqualTo 0) then { lbAdd [80215, "Kein Eintrag vorhanden"];
+ };
+ _id = _cur select 0;
+ { if((_x select 0) isEqualTo _id) exitWith { zero_var_garage deleteAt _foreachindex;
+ };
+ } forEach zero_var_garage;
+ [ [2,player,_cur,_price], "zero_fnc_auctionHandler", zero_var_HC1_owner,false] call zero_fnc_sendPacket;
+ [ "Die Auktion wurde hinzugefügt.", 1,"Auktionshaus", false, 2] call zero_fnc_msg;
+ [format ["AUCTION ADD: %1 (%2, %3) hat eine Auktion fuer seinen %4 (ID: %5) fuer insgesamt %6€ erstellt.",player getVariable["zero_var_realname",name player], getPlayerUID player, playerSide, getText(missionConfigFile >> "zero_CfgVehicles" >> (_cur select 2) >> "logname"),_id,[_price] call zero_fnc_numberText]] call zero_fnc_zoLog;
+ ctrlSetText[80216, "0"];
+ sleep 5;
+ [ [0,player], "zero_fnc_AuctionHandler", zero_var_HC1_owner ] call zero_fnc_sendPacket;
+
